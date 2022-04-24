@@ -13,13 +13,31 @@ const StyledButton = styled.button<{ variant: ButtonVariants }>`
   font-weight: bold;
   font-size: 1.4rem;
   cursor: pointer; 
+  transition: background-color 0.1s ease;
+  &:active {
+    transition: background-color 0s;
+  }
+
   ${props => props.variant === 'primary' && css`
     background-color: ${props => props.theme.color.primary};
     color: ${props => props.theme.color.background};
+    &:hover {
+      background-color: ${props => props.theme.color.primaryLight};
+    }
+    &:active {
+      background-color: ${props => props.theme.color.primaryDark};
+    }
   `}
+
   ${props => props.variant === 'secondary' && css`
     background-color: ${props => props.theme.color.background};
-    border: 1px solid ${props => props.theme.color.border}
+    border: 1px solid ${props => props.theme.color.border};
+    &:hover {
+      background-color: ${props => props.theme.color.backgroundFlat};
+    }
+    &:active {
+      background-color: ${props => props.theme.color.backgroundDark};
+    }
   `}
 `;
 
