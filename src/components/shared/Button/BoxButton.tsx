@@ -13,10 +13,15 @@ const StyledButton = styled.button<{ variant: ButtonVariants }>`
   font-weight: bold;
   font-size: 1.4rem;
   cursor: pointer; 
-  transition: background-color 0.1s ease;
+  transition: background-color 0.1s ease, opacity 0.2s ease;
   &:active {
     transition: background-color 0s;
   }
+  ${props => props.disabled && css`  
+      pointer-events: none;
+      cursor: default;
+      opacity: 0.5;
+  `}
 
   ${props => props.variant === 'primary' && css`
     background-color: ${props => props.theme.color.primary80};
@@ -45,9 +50,10 @@ interface Props {
   text: string;
   onClick?: () => void;
   variant?: ButtonVariants;
+  disabled?: boolean;
 }
-export const BoxButton = ({ text, onClick, variant = 'primary' }: Props) => (
-  <StyledButton onClick={onClick} variant={variant}>
+export const BoxButton = ({ text, onClick, variant = 'primary', disabled }: Props) => (
+  <StyledButton onClick={onClick} variant={variant} disabled={disabled}>
     {text}
   </StyledButton>
 );
