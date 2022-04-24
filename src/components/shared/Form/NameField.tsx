@@ -6,8 +6,10 @@ const StyledField = styled.input`
   font-size: 1.6rem;
   font-weight: 600;
   padding: 6px;
+  border-radius: 3px;
   margin: 2px;
   border: none;
+  box-sizing: border-box;
 `;
 
 interface Props {

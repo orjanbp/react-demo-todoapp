@@ -21,9 +21,11 @@ const StyledField = styled.textarea`
   font-size: 1.6rem;
   padding: 6px;
   margin: 2px;
+  border-radius: 3px;
   border: none;
   resize: none;
   overflow: hidden;
+  box-sizing: border-box;
 `;
 
 interface Props {
