@@ -17,7 +17,7 @@ const Container = styled.div`
 
 
 export const TodoOverviewPage = () => {
-  const { todoList } = useTodoStore();
+  const { todoList, addNewTodo } = useTodoStore();
 
   console.log(todoList);
 
@@ -25,10 +25,10 @@ export const TodoOverviewPage = () => {
     <Container>
       <TodoList>
         {todoList.map(todo => (
-          <TodoListItem item={todo} />
+          <TodoListItem key={todo.id} item={todo} />
         ))}
       </TodoList>
-      <AddNewTodo />
+      <AddNewTodo onAddTodo={addNewTodo} />
     </Container>
   );
 };

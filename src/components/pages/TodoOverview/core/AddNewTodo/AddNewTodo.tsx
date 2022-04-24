@@ -1,14 +1,12 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
-import { debounce } from 'lodash';
 import { NameField } from '@/components/shared/Form/NameField';
 import { DescriptionField } from '@/components/shared/Form/DescriptionField';
 import { BoxButton } from '@/components/shared/Button/BoxButton';
 import { ButtonGroup } from '@/components/shared/Button/ButtonGroup';
 import { TodoItemType } from '@/utils/types';
-import { useTodoStore } from '@/store/TodoStore';
 
-const emptyTodo = { name: '', description: '' };
+const emptyTodo = { id: '', name: '', description: '' };
 
 const Container = styled.div`
   background-color: #FFF;
@@ -17,9 +15,11 @@ const Container = styled.div`
   padding: 16px 16px;
 `;
 
-export const AddNewTodo = () => {
+interface Props {
+  onAddTodo: (newTodo: TodoItemType) => void;
+}
+export const AddNewTodo = ({ onAddTodo }: Props) => {
   const [newTodo, setNewTodo] = useState<TodoItemType>(emptyTodo);
-  const { addNewTodo } = useTodoStore();
 
   const handleChangeName = (name: string) => {
     setNewTodo({ ...newTodo, name });
@@ -32,7 +32,7 @@ export const AddNewTodo = () => {
   const handleSubmit = () => {
     // break if there is no name; the minimum requirement
     if (!newTodo.name) return;
-    addNewTodo(newTodo);
+    onAddTodo(newTodo);
     setNewTodo(emptyTodo);
   }
 

@@ -1,6 +1,7 @@
 import React, {
   createContext, PropsWithChildren, useContext, useState
 } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 import { TodoItemType, TodoList } from '@/utils/types';
 
 interface TodoStoreType {
@@ -10,8 +11,8 @@ interface TodoStoreType {
 }
 
 const initialTodos: TodoList = [
-  { name: 'First todo item' },
-  { name: 'Second todo item' }
+  { id: uuidv4(), name: 'First todo item' },
+  { id: uuidv4(), name: 'Second todo item' }
 ];
 
 const TodoStoreContext = createContext({} as TodoStoreType);
@@ -19,7 +20,8 @@ const TodoStoreContext = createContext({} as TodoStoreType);
 export const TodoStoreProvider = ({ children }: PropsWithChildren<{}>) => {
   const [todoList, setTodoList] = useState(initialTodos);
 
-  const addNewTodo = (newTodo: TodoItemType) => {
+  const addNewTodo = (item: TodoItemType) => {
+    const newTodo = { ...item, id: uuidv4() };
     setTodoList([...todoList, newTodo]);
   }
 
