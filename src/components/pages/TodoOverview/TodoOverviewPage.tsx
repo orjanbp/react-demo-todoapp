@@ -14,14 +14,14 @@ const Container = styled.div`
 
 
 export const TodoOverviewPage = () => {
-  const todoData = useTodoStore();
+  const { todoList } = useTodoStore();
 
-  console.log(todoData);
+  console.log(todoList);
 
   return (
     <Container>
       <TodoList>
-        {todoData.map(todo => (
+        {todoList.map(todo => (
           <TodoListItem item={todo} />
         ))}
       </TodoList>

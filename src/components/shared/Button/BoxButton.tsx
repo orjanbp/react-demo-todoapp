@@ -1,9 +1,9 @@
 import React, { PropsWithChildren } from 'react';
 import styled, { css } from 'styled-components';
 
-type ButtonVariarnts = 'primary' | 'secondary';
+type ButtonVariants = 'primary' | 'secondary';
 
-const Container = styled.button<{ variant: ButtonVariarnts }>`
+const StyledButton = styled.button<{ variant: ButtonVariants }>`
   display: flex;
   align-items: center;
   height: 38px;
@@ -25,10 +25,11 @@ const Container = styled.button<{ variant: ButtonVariarnts }>`
 
 interface Props {
   text: string;
-  variant?: ButtonVariarnts;
+  onClick?: () => void;
+  variant?: ButtonVariants;
 }
-export const BoxButton = ({ text, variant = 'primary' }: Props) => (
-  <Container variant={variant}>
+export const BoxButton = ({ text, onClick, variant = 'primary' }: Props) => (
+  <StyledButton onClick={onClick} variant={variant}>
     {text}
-  </Container>
+  </StyledButton>
 );

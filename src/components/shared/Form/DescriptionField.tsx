@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
+import { debounce } from 'lodash';
 
 const GrowWrap = styled.div`
   display: grid;
@@ -30,14 +31,16 @@ const StyledField = styled.textarea`
 
 interface Props {
   name: string;
+  value?: string;
   onChange: (val: string) => void;
 }
-export const DescriptionField = ({ name, onChange }: Props) => {
+export const DescriptionField = ({ name, value = '', onChange }: Props) => {
   const [ghost, setGhost] = useState('');
   return (
     <GrowWrap data-ghost={ghost}>
       <StyledField
         name={name}
+        value={value}
         placeholder="Description"
         onInput={evt => setGhost(evt.currentTarget.value)}
         onChange={evt => onChange(evt.currentTarget.value)}
