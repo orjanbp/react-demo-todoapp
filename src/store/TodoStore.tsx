@@ -6,8 +6,8 @@ import { TodoItemType, TodoList } from '@/utils/types';
 
 interface TodoStoreType {
   todoList: TodoList;
-  addNewTodo: (newTodo: TodoItemType) => void;
-  removeTodo: (removeTodo: TodoItemType) => void;
+  addNewTodo: (todoItem: TodoItemType) => void;
+  removeTodo: (todoItem: TodoItemType) => void;
 }
 
 const initialTodos: TodoList = [
@@ -20,13 +20,14 @@ const TodoStoreContext = createContext({} as TodoStoreType);
 export const TodoStoreProvider = ({ children }: PropsWithChildren<{}>) => {
   const [todoList, setTodoList] = useState(initialTodos);
 
-  const addNewTodo = (item: TodoItemType) => {
-    const newTodo = { ...item, id: uuidv4() };
+  const addNewTodo = (todoItem: TodoItemType) => {
+    const newTodo = { ...todoItem, id: uuidv4() };
     setTodoList([...todoList, newTodo]);
   }
 
-  const removeTodo = (removeTodo: TodoItemType) => {
-    const trimmed = [removeTodo, ...todoList];
+  const removeTodo = (todoItem: TodoItemType) => {
+    const trimmed = todoList.filter(item => item.id !== todoItem.id);
+    console.log('Trimmed list ===', trimmed);
     setTodoList(trimmed);
   }
 

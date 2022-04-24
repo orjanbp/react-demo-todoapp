@@ -21,7 +21,7 @@ const Container = styled(TodoItemContainer)`
 
 interface Props {
   item: TodoItemType;
-  onClose?: () => void;
+  onClose: (todoItem: TodoItemType) => void;
 }
 /**
  * Display a todo item as an element
@@ -29,6 +29,6 @@ interface Props {
 export const TodoListItem = ({ item, onClose }: Props) => (
   <Container>
     <TodoItemText>{item.name}</TodoItemText>
-    <CloseButton onClick={onClose} />
+    <CloseButton onClick={() => onClose(item)} />
   </Container>
 );
