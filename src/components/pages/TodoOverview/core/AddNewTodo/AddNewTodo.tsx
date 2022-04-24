@@ -10,7 +10,7 @@ const emptyTodo = { id: '', name: '', description: '' };
 
 const Container = styled.div`
   background-color: #FFF;
-  color: #222;
+  color: ${props => props.theme.color.textPrimary};
   border-radius: 3px;
   padding: 16px 16px;
 `;

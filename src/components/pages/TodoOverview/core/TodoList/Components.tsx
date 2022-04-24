@@ -1,26 +1,28 @@
 import styled from 'styled-components';
 
 export const TodoItemContainer = styled.div`
-  background-color: #FFF;
-  color: #222;
-  border-radius: 3px;
-  padding: 16px 16px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-  &:hover {
-    cursor: pointer;
-    background-color: #F0F0F0;
-  }
-`;
-
-export const TodoItemText = styled.div`
-  padding: 12px;
+  color: ${props => props.theme.color.textPrimary};
 `;
 
 /**
  * Apply spacing between subsequent todo items
  */
 export const TodoList = styled.div`
-  ${TodoItemContainer} + ${TodoItemContainer} {
-    margin-top: 8px;
-  }
+ ${TodoItemContainer} + ${TodoItemContainer} {
+   margin-top: 8px;
+ }
+`;
+
+export const ItemText = styled.div`
+  padding: 12px;
+`;
+
+export const ItemName = styled.div`
+  color: ${props => props.theme.color.textPrimary};
+`;
+
+export const ItemDesc = styled.div`
+  color: ${props => props.theme.color.textSecondary};
+  font-size: 1.3rem;
+  margin-top: 4px;
 `;

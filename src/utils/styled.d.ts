@@ -11,6 +11,8 @@ declare module 'styled-components' {
       primary100:             string;
       primary80:              string;
       primary60:              string;
+      textPrimary:            string;
+      textSecondary:          string;
     }
   }
 }

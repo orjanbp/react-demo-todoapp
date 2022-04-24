@@ -10,5 +10,7 @@ export const defaultTheme: DefaultTheme = {
     primary80: '#fa811e',
     primary60: '#e56a05',
     border: '#bdbdbd',
-  }
+    textPrimary: '#212121',
+    textSecondary: '#878787'
+  },
 }
