@@ -30,8 +30,9 @@ const StyledField = styled.textarea`
 
 interface Props {
   name: string;
+  onChange: (val: string) => void;
 }
-export const DescriptionField = ({ name }: Props) => {
+export const DescriptionField = ({ name, onChange }: Props) => {
   const [ghost, setGhost] = useState('');
   return (
     <GrowWrap data-ghost={ghost}>
@@ -39,6 +40,7 @@ export const DescriptionField = ({ name }: Props) => {
         name={name}
         placeholder="Description"
         onInput={evt => setGhost(evt.currentTarget.value)}
+        onChange={evt => onChange(evt.currentTarget.value)}
       />
     </GrowWrap>
   );

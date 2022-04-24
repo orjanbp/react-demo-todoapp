@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { FunctionComponent as FC } from 'react';
 import styled from 'styled-components';
 
 const StyledField = styled.input`
@@ -14,7 +14,13 @@ const StyledField = styled.input`
 
 interface Props {
   name: string;
+  onChange: (val: string) => void;
 }
-export const NameField = ({ name }: Props) => (
-  <StyledField type="text" name={name} placeholder="Task name" />
+export const NameField: FC<Props> = ({ name, onChange }) => (
+  <StyledField
+    type="text"
+    placeholder="Task name"
+    name={name}
+    onChange={evt => onChange(evt.currentTarget.value)}
+  />
 );
