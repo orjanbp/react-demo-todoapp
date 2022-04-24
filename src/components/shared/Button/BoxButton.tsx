@@ -14,12 +14,12 @@ const Container = styled.button<{ variant: ButtonVariarnts }>`
   font-size: 1.4rem;
   cursor: pointer; 
   ${props => props.variant === 'primary' && css`
-    background-color: #FC5E70;
-    color: #FFF;
+    background-color: ${props => props.theme.color.primary};
+    color: ${props => props.theme.color.background};
   `}
   ${props => props.variant === 'secondary' && css`
-    background-color: #FFF;
-    border: 1px solid #
+    background-color: ${props => props.theme.color.background};
+    border: 1px solid ${props => props.theme.color.border}
   `}
 `;
 
