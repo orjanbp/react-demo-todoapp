@@ -6,6 +6,7 @@ import { TodoItemType, TodoList } from '@/utils/types';
 interface TodoStoreType {
   todoList: TodoList;
   addNewTodo: (newTodo: TodoItemType) => void;
+  removeTodo: (removeTodo: TodoItemType) => void;
 }
 
 const initialTodos: TodoList = [
@@ -22,7 +23,12 @@ export const TodoStoreProvider = ({ children }: PropsWithChildren<{}>) => {
     setTodoList([...todoList, newTodo]);
   }
 
-  const value = { todoList, addNewTodo };
+  const removeTodo = (removeTodo: TodoItemType) => {
+    const trimmed = [removeTodo, ...todoList];
+    setTodoList(trimmed);
+  }
+
+  const value = { todoList, addNewTodo, removeTodo };
 
   return (
     <TodoStoreContext.Provider value={value}>

@@ -19,24 +19,24 @@ const StyledButton = styled.button<{ variant: ButtonVariants }>`
   }
 
   ${props => props.variant === 'primary' && css`
-    background-color: ${props => props.theme.color.primary};
-    color: ${props => props.theme.color.background};
+    background-color: ${props => props.theme.color.primary80};
+    color: ${props => props.theme.color.background100};
     &:hover {
-      background-color: ${props => props.theme.color.primaryLight};
+      background-color: ${props => props.theme.color.primary100};
     }
     &:active {
-      background-color: ${props => props.theme.color.primaryDark};
+      background-color: ${props => props.theme.color.primary60};
     }
   `}
 
   ${props => props.variant === 'secondary' && css`
-    background-color: ${props => props.theme.color.background};
+    background-color: ${props => props.theme.color.background100};
     border: 1px solid ${props => props.theme.color.border};
     &:hover {
-      background-color: ${props => props.theme.color.backgroundFlat};
+      background-color: ${props => props.theme.color.background80};
     }
     &:active {
-      background-color: ${props => props.theme.color.backgroundDark};
+      background-color: ${props => props.theme.color.background60};
     }
   `}
 `;

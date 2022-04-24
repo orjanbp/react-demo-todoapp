@@ -3,13 +3,14 @@ import 'styled-components';
 declare module 'styled-components' {
   export interface DefaultTheme {
     color: {
-      background:             string;
-      backgroundFlat:         string;
-      backgroundDark:         string;
+      background100:          string;
+      background80:           string;
+      background60:           string;
+      background40:           string;
       border:                 string;
-      primary:                string;
-      primaryLight:           string;
-      primaryDark:            string;
+      primary100:             string;
+      primary80:              string;
+      primary60:              string;
     }
   }
 }

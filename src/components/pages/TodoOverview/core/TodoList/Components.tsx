@@ -12,6 +12,10 @@ export const TodoItemContainer = styled.div`
   }
 `;
 
+export const TodoItemText = styled.div`
+  padding: 12px;
+`;
+
 /**
  * Apply spacing between subsequent todo items
  */
