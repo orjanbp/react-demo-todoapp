@@ -1,5 +1,5 @@
-export interface TodoItem {
+export interface TodoItemType {
   name: string;
 }
 
-export type TodoList = TodoItem[];
+export type TodoList = TodoItemType[];

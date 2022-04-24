@@ -1,5 +1,11 @@
 import React from 'react';
+import styled from 'styled-components';
 import { useTodoStore } from '@/store/TodoStore';
+import { TodoItem } from '@/components/shared/TodoItem/TodoItem';
+
+const Container = styled.div`
+  padding: 32px;
+`;
 
 export const TodoOverviewPage = () => {
   const todoData = useTodoStore();
@@ -7,13 +13,10 @@ export const TodoOverviewPage = () => {
   console.log(todoData);
 
   return (
-    <div>
-      <div>Hello World</div>
-      <div>Todo Overview Page</div>
-      <hr />
+    <Container>
       {todoData.map(todo => (
-        <div key={todo.name}>{todo.name}</div>
+        <TodoItem item={todo} />
       ))}
-    </div>
+    </Container>
   );
 };

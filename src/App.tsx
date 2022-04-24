@@ -1,16 +1,14 @@
 import React from 'react';
-import logo from './logo.svg';
 import { AppRouting } from '@/components/AppRouting/AppRouting';
-import './App.css';
+import { AppBackground } from '@/components/layout/AppBackground';
+import { Header } from './components/shared/Header/Header';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <AppRouting />
-      </header>
-    </div>
+    <AppBackground>
+      <Header />
+      <AppRouting />
+    </AppBackground >
   );
 }
 
