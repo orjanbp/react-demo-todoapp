@@ -8,6 +8,6 @@ import { TodoOverviewPage } from '../pages/TodoOverview/TodoOverviewPage';
  */
 export const AppRouting = () => (
   <Routes>
-    <Route path="/*" element={<TodoOverviewPage />} />
+    <Route path="/" element={<TodoOverviewPage />} />
   </Routes>
 );
