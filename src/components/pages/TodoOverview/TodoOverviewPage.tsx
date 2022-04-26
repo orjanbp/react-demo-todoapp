@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { useTodoStore } from '@/store/TodoStore';
 import { TodoList, TodoListItem } from '@/components/pages/TodoOverview/core/TodoList';
 import { AddNewTodo } from './core/AddNewTodo/AddNewTodo';
+import { AnimFadeOnLoad } from '@/components/shared/Animations/AnimFadeOnLoad';
+import { AnimatePresence } from 'framer-motion';
 
 const Container = styled.div`
   display: grid;
@@ -15,7 +17,6 @@ const Container = styled.div`
   box-sizing: border-box;
 `;
 
-
 export const TodoOverviewPage = () => {
   const { todoList, addNewTodo, removeTodo } = useTodoStore();
 
@@ -24,9 +25,13 @@ export const TodoOverviewPage = () => {
   return (
     <Container>
       <TodoList>
-        {todoList.map(todo => (
-          <TodoListItem key={todo.id} item={todo} onClose={removeTodo} />
-        ))}
+        <AnimatePresence>
+          {todoList.map(todo => (
+            <AnimFadeOnLoad>
+              <TodoListItem item={todo} onClose={removeTodo} />
+            </AnimFadeOnLoad>
+          ))}
+        </AnimatePresence>
       </TodoList>
       <AddNewTodo onAddTodo={addNewTodo} />
     </Container>

@@ -5,6 +5,7 @@ import { DescriptionField } from '@/components/shared/Form/DescriptionField';
 import { BoxButton } from '@/components/shared/Button/BoxButton';
 import { ButtonGroup } from '@/components/shared/Button/ButtonGroup';
 import { TodoItemType } from '@/utils/types';
+import { FieldsWithBorder } from './Components';
 
 const emptyTodo = { id: '', name: '', description: '' };
 
@@ -39,8 +40,10 @@ export const AddNewTodo = ({ onAddTodo }: Props) => {
 
   return (
     <Container>
-      <NameField name="new-todo-name" value={newTodo.name} onChange={handleChangeName} />
-      <DescriptionField name="new-todo-description" value={newTodo.description} onChange={handleChangeDescription} />
+      <FieldsWithBorder>
+        <NameField name="new-todo-name" value={newTodo.name} onChange={handleChangeName} />
+        <DescriptionField name="new-todo-description" value={newTodo.description} onChange={handleChangeDescription} />
+      </FieldsWithBorder>
       <ButtonGroup paddingTop="16px">
         <BoxButton text="Add task" onClick={handleSubmit} disabled={!newTodo.name} />
         <BoxButton text="Cancel" variant="secondary" />
