@@ -1,17 +1,18 @@
 import React from 'react';
 import styled from 'styled-components';
 import { TodoItemType } from '@/utils/types';
-import { TodoItemContainer, ItemDesc, ItemName, ItemText } from './Components';
+import { ItemDesc, ItemName, ItemText } from './Components';
 import { CloseButton } from './CloseButton';
 
-const Container = styled(TodoItemContainer)`
+const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: ${props => props.theme.color.background100};
+  color: ${props => props.theme.color.textPrimary};
   border-radius: 3px;
   padding: 8px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.20);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px #4e010133;
   &:hover {
     cursor: pointer;
     background-color: ${props => props.theme.color.background80};

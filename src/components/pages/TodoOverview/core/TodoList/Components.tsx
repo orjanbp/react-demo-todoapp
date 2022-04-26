@@ -1,14 +1,10 @@
 import styled from 'styled-components';
 
-export const TodoItemContainer = styled.div`
-  color: ${props => props.theme.color.textPrimary};
-`;
-
 /**
  * Apply spacing between subsequent todo items
  */
 export const TodoList = styled.div`
- ${TodoItemContainer} + ${TodoItemContainer} {
+  > div + div {
    margin-top: 8px;
  }
 `;
