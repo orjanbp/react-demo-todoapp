@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
+import { AnimatePresence } from 'framer-motion';
 import { useTodoStore } from '@/store/TodoStore';
 import { TodoList, TodoListItem } from '@/components/pages/TodoOverview/core/TodoList';
-import { AddNewTodo } from './core/AddNewTodo/AddNewTodo';
 import { AnimFadeOnLoad } from '@/components/shared/Animations/AnimFadeOnLoad';
-import { AnimatePresence } from 'framer-motion';
+import { AddNewTodo } from './core/AddNewTodo/AddNewTodo';
 
 const Container = styled.div`
   display: grid;
